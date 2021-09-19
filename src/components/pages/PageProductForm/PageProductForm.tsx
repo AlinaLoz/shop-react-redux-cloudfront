@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import {Product, ProductSchema} from "models/Product";
@@ -88,7 +89,7 @@ const Form = (props: FormikProps<FormikValues>) => {
             type="submit"
             variant="contained"
             color="primary"
-            disabled={!dirty || isSubmitting || !isValid}
+            disabled={!isValid}
           >
             Save Product
           </Button>
@@ -109,7 +110,8 @@ export default function PageProductForm() {
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.put(`${API_PATHS.bff}/product`, productToSave)
+    
+    axios.post(`${API_PATHS.product}`, productToSave)
       .then(() => history.push('/admin/products'));
   };
 
@@ -118,7 +120,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/product/${id}`)
+    axios.get(`${API_PATHS.product}/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);

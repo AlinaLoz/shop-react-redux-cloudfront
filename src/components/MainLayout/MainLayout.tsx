@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Container from "@material-ui/core/Container";
 import Header from "components/MainLayout/components/Header";
+import { ToastContainer } from 'react-toastify';
 
 function Copyright() {
   return (
@@ -45,7 +46,9 @@ const MainLayout: React.FC = ({children}) => {
         </Typography>
         <Copyright/>
       </footer>
+      <ToastContainer />
     </>
+    
   );
 };
 

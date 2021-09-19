@@ -1,10 +1,11 @@
 
+const BACKEND_URL = 'https://e0lgw3dmwc.execute-api.eu-west-1.amazonaws.com/dev';
 const API_PATHS = {
-  product: 'https://e0lgw3dmwc.execute-api.eu-west-1.amazonaws.com/dev/products',
-  order: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  import: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  bff: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  cart: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
+  bff: BACKEND_URL,
+  product: BACKEND_URL + '/products',
+  order: BACKEND_URL + '/order',
+  import: BACKEND_URL + '/import',
+  cart: BACKEND_URL + '/cart',
 };
 
 export default API_PATHS;

@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.interceptors.response.use(
   response => {
@@ -14,7 +15,7 @@ axios.interceptors.response.use(
   },
   function(error) {
     if (error?.response?.status === 400) {
-      alert(error.response.data?.data);
+      toast.error(error.response.data?.errors[0]?.message);
     }
 
     return Promise.reject(error?.response ?? error);
