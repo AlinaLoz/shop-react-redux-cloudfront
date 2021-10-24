@@ -64,7 +64,7 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
         {title}
       </Typography>
       {!file ? (
-          <input type="file" onChange={onFileChange}/>
+          <input type="file" accept=".csv"  onChange={onFileChange}/>
       ) : (
         <div>
           <button onClick={removeFile}>Remove file</button>
